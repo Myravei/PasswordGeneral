@@ -23,6 +23,9 @@ public class Controller implements Initializable {
     public CheckBox nums;
     public ListView list;
 
+    public TextField passwordToCode;
+    public TextField codedPassword;
+
     public Random random = new Random();
 
     @Override
@@ -32,6 +35,9 @@ public class Controller implements Initializable {
         length.setValue(20);
         count.setValue(1);
     }
+
+
+
 
     public void generate(ActionEvent actionEvent) {
         if (rus.isSelected() || rusUpper.isSelected() || eng.isSelected() || engUpper.isSelected() || nums.isSelected()) {
@@ -58,6 +64,13 @@ public class Controller implements Initializable {
                 list.getItems().add(passwordGenerator.toString() + "");
                 i++;
             }
+        }
+    }
+    public void code(ActionEvent actionEvent) {
+        if (passwordToCode.getText().length() > 0) {
+            PasswordGenerator passwordGenerator = new PasswordGenerator(passwordToCode.getText());
+            passwordGenerator.filterCode();
+            codedPassword.setText(passwordGenerator.toString());
         }
     }
 }
