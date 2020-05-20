@@ -119,6 +119,7 @@ public class PasswordGenerator {
                     break;
                 }
             }
+
             for (int j = 0; j < ENG.length; j++){
                 if (Array[i] == ENG[j]) {
                     Array[i] = ENGCezar[j];

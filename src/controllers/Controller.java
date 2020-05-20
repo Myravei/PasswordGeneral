@@ -14,14 +14,14 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    public ChoiceBox length;
-    public ChoiceBox count;
+    public ChoiceBox<Integer> length;
+    public ChoiceBox<Integer> count;
     public CheckBox rus;
     public CheckBox rusUpper;
     public CheckBox eng;
     public CheckBox engUpper;
     public CheckBox nums;
-    public ListView list;
+    public ListView<String> list;
 
     public TextField passwordToCode;
     public TextField codedPassword;
@@ -29,7 +29,8 @@ public class Controller implements Initializable {
     public Random random = new Random();
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         length.getItems().addAll(15, 20, 25, 30, 35, 40);
         count.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         length.setValue(20);
@@ -43,8 +44,8 @@ public class Controller implements Initializable {
         if (rus.isSelected() || rusUpper.isSelected() || eng.isSelected() || engUpper.isSelected() || nums.isSelected()) {
             list.getItems().clear();
             int i = 1;
-            while (i <= (int) count.getValue()) {
-                PasswordGenerator passwordGenerator = new PasswordGenerator((int) length.getValue(), random);
+            while (i <= count.getValue()) {
+                PasswordGenerator passwordGenerator = new PasswordGenerator(length.getValue(), random);
                 if (rus.isSelected()) {
                     passwordGenerator.PasRus();
                 }
