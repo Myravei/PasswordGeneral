@@ -64,6 +64,7 @@ public class Controller implements Initializable {
                 }
                 list.getItems().add(passwordGenerator.toString() + "");
                 i++;
+
             }
         }
     }
