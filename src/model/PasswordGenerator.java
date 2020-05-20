@@ -29,6 +29,7 @@ public class PasswordGenerator {
         for (int i = 0; i < Array.length; i++) {
             Array[i] = '*';
         }
+
     }
     public PasswordGenerator(String password) {
         this.maxLenght = password.length();
